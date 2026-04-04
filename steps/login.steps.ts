@@ -34,3 +34,4 @@ Then ('click on the load more button',async ({page})=>
 { const loginPage = new LoginPage(page);
   await loginPage.clickLoadMore();
 })
+//test
