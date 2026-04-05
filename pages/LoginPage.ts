@@ -64,4 +64,3 @@ export class LoginPage {
     }
   }
 }
-//test from logingpage.ts
