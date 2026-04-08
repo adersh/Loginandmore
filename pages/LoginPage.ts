@@ -64,4 +64,4 @@ export class LoginPage {
     }
   }
 }
-//new changes from local feature branch test2 test 3 test 4.
+//Now teh feature file has been linked with Step Definitions.
