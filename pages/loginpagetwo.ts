@@ -1,6 +1,6 @@
 import { Page, Locator, expect } from '@playwright/test';
 
-export class LoginPage {
+export class Loginpagetwo {
   readonly page: Page;
   readonly signInLink: Locator;
   readonly emailInput: Locator;
@@ -31,37 +31,23 @@ export class LoginPage {
   }
 
   // Login action
-  async login(username: string, password: string) {
+  async entercredentials(username: string, password: string) {
     await this.signInLink.click();
     await this.emailInput.fill(username);
     await this.passwordInput.fill(password);
-    await this.signInButton.click();
+    
   }
 
   // Handle cookie popup safely
-  async acceptCookiesIfVisible() {
-    const isVisible = await this.allowCookiesButton.isVisible().catch(() => false);
-    if (isVisible) {
-      await this.allowCookiesButton.click();
-      await this.page.pause();
-    }
+  async proceedwithlogin() {
+    await this.signInButton.click();
   }
 
   // Verify successful login
   async verifyLoginSuccess() {
     await expect(this.homeLink).toBeVisible();
-    await this.page.pause();
+    //await this.page.pause();
   }
 
-  // Optional: Click "Load More" until it disappears
-  async clickLoadMore() {
-    
-    await this.page.pause();  
-    while (await this.loadMoreButton.isVisible().catch(() => false)) { 
-    await this.page.pause();
-    await this.loadMoreButton.scrollIntoViewIfNeeded(); 
-    await this.loadMoreButton.click(); 
-    }
-  }
+  
 }
-//Now teh feature file has been linked with Step Definitions.
