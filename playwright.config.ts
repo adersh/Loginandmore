@@ -27,7 +27,7 @@ export default defineConfig({
   ],
 });*/
 
-import { defineConfig, devices } from '@playwright/test';
+/*import { defineConfig, devices } from '@playwright/test';
 import { defineBddConfig } from 'playwright-bdd';
 import dotenv from 'dotenv';
 import path from 'path';
@@ -43,10 +43,46 @@ const testDir = defineBddConfig({
 export default defineConfig({
   testDir,
   use: {
+    
     baseURL: process.env.BASE_URL || 'https://apply.jobs.scot.nhs.uk',
     headless: true,
     trace: 'on',
   },
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+  ],
+});*/
+
+import { defineConfig, devices } from '@playwright/test';
+import { defineBddConfig } from 'playwright-bdd';
+import dotenv from 'dotenv';
+import path from 'path';
+
+// Load environment variables
+dotenv.config({ path: path.resolve(__dirname, '.env') });
+
+// BDD configuration
+const testDir = defineBddConfig({
+  features: 'features/*.feature',
+  steps: ['steps/*.ts'],
+  missingSteps: 'fail-on-gen'
+});
+
+export default defineConfig({
+  testDir,
+
+  use: {
+    baseURL: process.env.BASE_URL || 'https://apply.jobs.scot.nhs.uk',
+
+    // FIX: Headless logic for CI vs Local
+    headless: process.env.CI ? true : false,
+
+    trace: 'on',
+  },
+
   projects: [
     {
       name: 'chromium',
