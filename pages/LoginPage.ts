@@ -64,4 +64,4 @@ export class LoginPage {
     }
   }
 }
-//Now teh feature file has been linked with Step Definitions.
+//Now the feature file has been linked with Step Definitions.
