@@ -64,4 +64,4 @@ export class LoginPage {
     }
   }
 }
-//Committ to run
+//Committ to run with headless true

@@ -44,7 +44,7 @@ export default defineConfig({
   testDir,
   use: {
     baseURL: process.env.BASE_URL || 'https://apply.jobs.scot.nhs.uk',
-    headless: false,
+    headless: true,
     trace: 'on',
   },
   projects: [
