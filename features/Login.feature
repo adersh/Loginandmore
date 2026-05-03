@@ -1,5 +1,5 @@
 Feature: Validate the login page
-Scenario: Verify teh user can able to login to the portal using valid credentials
+Scenario: Verify the user can able to login to the portal using valid credentials
 
 Given User should be in login page
 When Enter valid user name and password
